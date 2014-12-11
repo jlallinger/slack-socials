@@ -18,11 +18,9 @@ var SocialServer = function(hookUrl)
 		if (req.body.text)
 		{
 			message = message + " " + (verb[1] == "" ? "" : verb[1] + " ") + req.body.text
-				.replace(/@\w+/, "<$&>")
 				.replace(" " + verb[1], "")
 				.replace(verb[1] + " ", "");
 		}
-		message = message + ".";
 
 		var channel = "#" + req.body.channel_name;
 

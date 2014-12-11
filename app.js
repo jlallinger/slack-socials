@@ -6,7 +6,7 @@ var request = require("superagent");
 var SocialServer = function(hookUrl, token)
 {
 	var app = express();
-	app.use(bodyParser.urlencoded());
+	app.use(bodyParser.urlencoded({ extended: true }));
 
 
 	app.post("/verb/:verb", function(req, res)
@@ -57,3 +57,5 @@ if (module.parent == null)
 	console.log("Listening on %d", port);
 	app.listen(port);
 }
+
+module.exports = SocialServer;

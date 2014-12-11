@@ -13,11 +13,11 @@ var SocialServer = function(hookUrl)
 	{
 		var verb =  req.params.verb.split("|");
 		var username = req.body.user_name;
-		
+
 		var message = username + " " + verb[0];
 		if (req.body.text)
 		{
-			message = message + " " + verb[1] + " " + req.body.text
+			message = message + " " + (verb[1] == "" ? "" : verb[1] + " ") + req.body.text
 				.replace(/@\w+/, "<$&>")
 				.replace(" " + verb[1], "")
 				.replace(verb[1] + " ", "");

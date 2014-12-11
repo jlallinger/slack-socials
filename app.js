@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 var request = require("superagent");
 
 
-var SocialServer = function(hookUrl, token)
+var SocialServer = function(hookUrl)
 {
 	var app = express();
 	app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,13 +13,7 @@ var SocialServer = function(hookUrl, token)
 	{
 		var verb =  req.params.verb.split("|");
 		var username = req.body.user_name;
-
-		if (req.body.token !== token)
-		{
-			res.send(401, "Unauthorized");
-			return;
-		}
-
+		
 		var message = username + " " + verb[0];
 		if (req.body.text)
 		{
@@ -51,9 +45,8 @@ if (module.parent == null)
 {
 	var port = process.env.PORT || 9999;
 	var hookUrl = process.env.HOOK_URL;
-	var token = process.env.TOKEN;
 
-	var app = SocialServer(hookUrl, token);
+	var app = SocialServer(hookUrl);
 	console.log("Postback url: %s", hookUrl);
 	console.log("Listening on %d", port);
 	app.listen(port);

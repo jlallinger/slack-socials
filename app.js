@@ -37,7 +37,8 @@ var SocialServer = function(hookUrl, token)
 				channel: channel,
 				text: message,
 				unfurl_links: true,
-				link_names: 1
+				link_names: 1,
+				icon_emoji: verb[2]
 			})
 			.end();
 		res.send(200, "");

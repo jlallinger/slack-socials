@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/jlallinger/slack-socials/issues"
   },
-  "homepage": "https://github.com/jlallinger/slack-socials"
+  "homepage": "https://github.com/jlallinger/slack-socials",
+  "dependencies": {
+    "body-parser": "^1.10.0",
+    "express": "^4.10.4",
+    "superagent": "^0.21.0"
+  }
 }

@@ -36,6 +36,13 @@ var SocialServer = function(hookUrl)
 		res.send(200, "");
 	});
 
+	app.post("/eval/:eval", function(req, res)
+	{
+		"use strict";
+		var result = eval(req.body.text);
+		res.send(200, result);
+	});
+
 	return app;
 };
 

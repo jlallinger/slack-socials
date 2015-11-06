@@ -39,7 +39,7 @@ var SocialServer = function(hookUrl)
 	app.post("/eval", function(req, res)
 	{
 		"use strict";
-		console.log("eval request: " + req.body);
+		console.log("eval request: ", req.body);
 		var result = eval(req.body.text);
 		res.send(200, "\"" + result + "\"");
 	});

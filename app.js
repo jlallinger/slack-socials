@@ -40,7 +40,7 @@ var SocialServer = function(hookUrl)
 	{
 		"use strict";
 		var result = eval(req.body.text);
-		res.send(200, result);
+		res.send(200, "\"" + result + "\"");
 	});
 
 	return app;
